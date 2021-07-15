@@ -60,6 +60,10 @@ class ArucoNode(rclpy.node.Node):
         info_topic = self.get_parameter("camera_info_topic").get_parameter_value().string_value
         self.camera_frame = self.get_parameter("camera_frame").get_parameter_value().string_value
 
+        self.get_logger().info("image_topic: {}".format(image_topic))
+        self.get_logger().info("info_topic: {}".format(info_topic))
+        self.get_logger().info("camera_frame: {}".format(self.camera_frame))
+
         # Make sure we have a valid dictionary id:
         try:
             dictionary_id = cv2.aruco.__getattribute__(dictionary_id_name)
